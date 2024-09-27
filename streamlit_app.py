@@ -1,6 +1,7 @@
 import streamlit as st
 import time
 import base64
+import os
 
 # Inject custom CSS to change the background color and add padding to content
 st.markdown(
@@ -24,12 +25,15 @@ st.markdown(
 
 # Load the SVG file as a base64-encoded string
 def load_svg_as_base64(svg_file_path):
+    if not os.path.isfile(svg_file_path):
+        raise FileNotFoundError(f"File {svg_file_path} not found.")
     with open(svg_file_path, "rb") as file:
         svg_bytes = file.read()
     return base64.b64encode(svg_bytes).decode()
 
-# Load the email.svg as base64
-svg_base64 = load_svg_as_base64("email.svg")
+# Update this path to the correct location of your email.svg
+svg_file_path = "email.svg"  # Adjust the path if needed
+svg_base64 = load_svg_as_base64(svg_file_path)
 
 # Create a container for the typing effect
 container = st.empty()
