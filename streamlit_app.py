@@ -1,6 +1,6 @@
 import streamlit as st
 import time
-from PIL import Image  # For loading the SVG image
+import base64
 
 # Inject custom CSS to change the background color
 st.markdown(
@@ -14,16 +14,22 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Load the SVG image
-email_icon = Image.open("email.svg")
+# Load the SVG file as a base64-encoded string
+def load_svg_as_base64(svg_file_path):
+    with open(svg_file_path, "rb") as file:
+        svg_bytes = file.read()
+    return base64.b64encode(svg_bytes).decode()
+
+# Load the email.svg as base64
+svg_base64 = load_svg_as_base64("email.svg")
 
 # Display the email icon as a hyperlink
 st.markdown(
-    """
+    f"""
     <a href="mailto:rajalbandi.manoj@gmail.com">
-        <img src="data:image/svg+xml;base64,{encoded}" alt="Email Icon" style="width:40px;height:40px;">
+        <img src="data:image/svg+xml;base64,{svg_base64}" alt="Email Icon" style="width:40px;height:40px;">
     </a>
-    """.format(encoded=st.image(email_icon, use_column_width=False)),
+    """,
     unsafe_allow_html=True
 )
 
@@ -42,8 +48,4 @@ typed_text = ""
 # Simulate typing effect
 for char in text:
     typed_text += char
-    container.markdown(f"# {typed_text}")  # Using Markdown header for large text
-    time.sleep(typing_speed)
-
-# Keep the final text displayed
-container.markdown(f"# {text}")  # Markdown header with a single #
+    container.markdown(f"# {typed_text}")
