@@ -92,7 +92,7 @@ st.markdown(
         </a>
     </div>
     <div class="down-arrow-container">
-        <a href="/about_me">
+        <a href="https://manojrajalbandi.streamlit.app/about_me.py">
             <img src="data:image/png;base64,{down_arrow_png_base64}" alt="Down Arrow" class="down-arrow">
         </a>
     </div>
