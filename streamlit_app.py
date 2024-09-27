@@ -1,7 +1,6 @@
 import streamlit as st
 import base64
 import time
-from urllib.parse import parse_qs
 
 # Inject custom CSS to change the background color and style the page
 st.markdown(
@@ -43,57 +42,55 @@ facebook_png_base64 = load_image_as_base64("facebook.png")
 twitter_png_base64 = load_image_as_base64("twitter.png")
 down_arrow_png_base64 = load_image_as_base64("down_arrow.png")
 
-# Check if the `page` parameter is set to `about_me`
-query_params = st.experimental_get_query_params()
-if query_params.get("page") == ["about_me"]:
-    # Render the About Me page content
-    st.markdown(
-        """
-        <style>
-        .stApp {
-            background-color: peachpuff;  /* Peach background color */
-        }
-        .about-me-section {
-            margin-top: 50px;
-            text-align: center;
-            color: black;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-    st.markdown(
-        """
-        <div class="about-me-section">
-            <h1>About Me</h1>
-            <p>Here is some information about me...</p>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-else:
-    # Create a container for the typing effect
-    container = st.empty()
+# Create a container for the typing effect
+container = st.empty()
 
-    # Text to be typed
-    text = "Hi, I am Manoj Rajalbandi, a System Software Engineer - Distributed Systems"
+# Text to be typed
+text = "Hi, I am Manoj Rajalbandi, a System Software Engineer - Distributed Systems"
 
-    # Typing speed (seconds)
-    typing_speed = 0.05
+# Typing speed (seconds)
+typing_speed = 0.05
 
-    # Initialize empty string
-    typed_text = ""
+# Initialize empty string
+typed_text = ""
 
-    # Simulate typing effect
-    for char in text:
-        typed_text += char
-        container.markdown(f"# {typed_text}")  # Using Markdown header for large text
-        time.sleep(typing_speed)
+# Simulate typing effect
+for char in text:
+    typed_text += char
+    container.markdown(f"# {typed_text}")  # Using Markdown header for large text
+    time.sleep(typing_speed)
 
-    # Keep the final text displayed
-    container.markdown(f"# {text}")  # Markdown header with a single #
+# Keep the final text displayed
+container.markdown(f"# {text}")  # Markdown header with a single #
 
-    # Add space before displaying the icons
-    st.markdown("<br>" * 7, unsafe_allow_html=True)  # Adds 7 line breaks
+# Add space before displaying the icons
+st.markdown("<br>" * 7, unsafe_allow_html=True)  # Adds 7 line breaks
 
-    #
+# Display the icons with hyperlinks and the downward arrow
+st.markdown(
+    f"""
+    <div class="icons-container">
+        <a href="mailto:rajalbandi.manoj@gmail.com">
+            <img src="data:image/svg+xml;base64,{email_svg_base64}" alt="Email Icon" style="width:40px;height:40px;">
+        </a>
+        <a href="https://github.com/manojraj185">
+            <img src="data:image/png;base64,{github_png_base64}" alt="GitHub Icon" style="width:40px;height:40px;">
+        </a>
+        <a href="https://www.linkedin.com/in/manoj-rajalbandi/">
+            <img src="data:image/png;base64,{linkedin_png_base64}" alt="LinkedIn Icon" style="width:40px;height:40px;">
+        </a>
+        <a href="https://www.facebook.com/manoj.rajalbandi/">
+            <img src="data:image/png;base64,{facebook_png_base64}" alt="Facebook Icon" style="width:40px;height:40px;">
+        </a>
+        <a href="https://x.com/manojrajal">
+            <img src="data:image/png;base64,{twitter_png_base64}" alt="Twitter Icon" style="width:40px;height:40px;">
+        </a>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+# Button to navigate to the About Me page
+if st.button("Go to About Me"):
+    st.experimental_set_query_params(page="about_me")
+    st.experimental_rerun()
