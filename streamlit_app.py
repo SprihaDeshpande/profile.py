@@ -1,5 +1,6 @@
 import streamlit as st
 import time
+from PIL import Image  # For loading the SVG image
 
 # Inject custom CSS to change the background color
 st.markdown(
@@ -13,13 +14,16 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Display email icon with a hyperlink
+# Load the SVG image
+email_icon = Image.open("email.svg")
+
+# Display the email icon as a hyperlink
 st.markdown(
     """
     <a href="mailto:rajalbandi.manoj@gmail.com">
-        <img src="email.svg" alt="Email Icon" style="width:40px;height:40px;">
+        <img src="data:image/svg+xml;base64,{encoded}" alt="Email Icon" style="width:40px;height:40px;">
     </a>
-    """,
+    """.format(encoded=st.image(email_icon, use_column_width=False)),
     unsafe_allow_html=True
 )
 
