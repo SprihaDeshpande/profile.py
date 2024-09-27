@@ -1,27 +1,23 @@
-# Import Streamlit library
 import streamlit as st
+import time
 
-# Title
-st.title("Typing Effect")
+# Create a container for the typing effect
+container = st.empty()
 
-# Typing effect using HTML and CSS
-st.markdown("""
-<style>
-  .typing {
-    font-size: 48px;
-    font-weight: bold;
-    animation: type 2s steps(40);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
-  @keyframes type {
-    from {
-      width: 0;
-    }
-  }
-</style>
-<div class="typing">Hi, I am Manoj, a software engineer</div>
-""", unsafe_allow_html=True)
+# Text to be typed
+text = "Hi, I am Manoj, a software engineer"
+
+# Typing speed (seconds)
+typing_speed = 0.05
+
+# Initialize empty string
+typed_text = ""
+
+# Simulate typing effect
+for char in text:
+    typed_text += char
+    container.write(f"<h1>{typed_text}</h1>") 
+    time.sleep(typing_speed)
+
+# Keep the final text displayed
+container.write(f"<h1>{text}</h1>")
