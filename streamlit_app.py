@@ -16,8 +16,8 @@ typed_text = ""
 # Simulate typing effect
 for char in text:
     typed_text += char
-    container.markdown(f"<h1>{typed_text}</h1>", unsafe_allow_html=True)
+    container.markdown(f"# {typed_text}")  # Using Markdown header for large text
     time.sleep(typing_speed)
 
 # Keep the final text displayed
-container.markdown(f"<h1>{text}</h1>", unsafe_allow_html=True)
+container.markdown(f"# {text}")  # Markdown header with a single #
