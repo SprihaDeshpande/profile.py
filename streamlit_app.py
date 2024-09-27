@@ -24,7 +24,7 @@ def load_svg_as_base64(svg_file_path):
 container = st.empty()
 
 # Text to be typed
-text = "Hi, I am Manoj Rajalbandi, a Principal Software Engineer"
+text = "Hi, I am Manoj Rajalbandi, a System Software Engineer - Distributed Systems"
 
 # Typing speed (seconds)
 typing_speed = 0.05
