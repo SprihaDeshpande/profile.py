@@ -20,19 +20,6 @@ def load_svg_as_base64(svg_file_path):
         svg_bytes = file.read()
     return base64.b64encode(svg_bytes).decode()
 
-# Load the email.svg as base64
-svg_base64 = load_svg_as_base64("email.svg")
-
-# Display the email icon as a hyperlink
-st.markdown(
-    f"""
-    <a href="mailto:rajalbandi.manoj@gmail.com">
-        <img src="data:image/svg+xml;base64,{svg_base64}" alt="Email Icon" style="width:40px;height:40px;">
-    </a>
-    """,
-    unsafe_allow_html=True
-)
-
 # Create a container for the typing effect
 container = st.empty()
 
@@ -53,3 +40,18 @@ for char in text:
 
 # Keep the final text displayed
 container.markdown(f"# {text}")  # Markdown header with a single #
+
+# Load the email.svg as base64
+svg_base64 = load_svg_as_base64("email.svg")
+
+# Display the email icon as a hyperlink after text has finished typing
+st.markdown(
+    f"""
+    <a href="mailto:rajalbandi.manoj@gmail.com">
+        <img src="data:image/svg+xml;base64,{svg_base64}" alt="Email Icon" style="width:40px;height:40px;">
+    </a>
+    """,
+    unsafe_allow_html=True
+)
+
+
