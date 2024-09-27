@@ -13,11 +13,21 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# Display email icon with a hyperlink
+st.markdown(
+    """
+    <a href="mailto:rajalbandi.manoj@gmail.com">
+        <img src="email.svg" alt="Email Icon" style="width:40px;height:40px;">
+    </a>
+    """,
+    unsafe_allow_html=True
+)
+
 # Create a container for the typing effect
 container = st.empty()
 
 # Text to be typed
-text = "Hi, I am Manoj Rajalbandi, Software Engineer, Distributed Systems"
+text = "Hi, I am Manoj Rajalbandi, a Principal Software Engineer"
 
 # Typing speed (seconds)
 typing_speed = 0.05
