@@ -5,7 +5,7 @@ import time
 container = st.empty()
 
 # Text to be typed
-text = "Hi, I am Manoj, a software engineer"
+text = "Hi, I am Manoj Rajalbandi, a Principal Software Engineer"
 
 # Typing speed (seconds)
 typing_speed = 0.05
@@ -16,8 +16,8 @@ typed_text = ""
 # Simulate typing effect
 for char in text:
     typed_text += char
-    container.write(f"<h1>{typed_text}</h1>") 
+    container.markdown(f"<h1>{typed_text}</h1>", unsafe_allow_html=True)
     time.sleep(typing_speed)
 
 # Keep the final text displayed
-container.write(f"<h1>{text}</h1>")
+container.markdown(f"<h1>{text}</h1>", unsafe_allow_html=True)
