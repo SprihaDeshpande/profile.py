@@ -27,3 +27,8 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+# Button to go back to the main page
+if st.button("Back to Main Page"):
+    st.experimental_set_query_params(page=None)
+    st.experimental_rerun()
