@@ -1,6 +1,7 @@
 import streamlit as st
 import base64
 import time
+from urllib.parse import urlencode
 
 # Inject custom CSS to change the background color and style the page
 st.markdown(
@@ -17,17 +18,11 @@ st.markdown(
         margin-bottom: 20px;  /* Optional: Add space below the icons */
         z-index: 1000;
     }
-    .navigate-button {
-        display: block;
-        width: 200px;
-        margin: 20px auto;
-        padding: 10px;
-        text-align: center;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
+    .down-arrow {
+        width: 40px;
+        height: 40px;
         cursor: pointer;
+        margin: 0 auto;
     }
     </style>
     """,
@@ -46,6 +41,7 @@ github_png_base64 = load_image_as_base64("github.png")
 linkedin_png_base64 = load_image_as_base64("linkedin.png")
 facebook_png_base64 = load_image_as_base64("facebook.png")
 twitter_png_base64 = load_image_as_base64("twitter.png")
+down_arrow_png_base64 = load_image_as_base64("down_arrow.png")
 
 # Create a container for the typing effect
 container = st.empty()
@@ -71,7 +67,7 @@ container.markdown(f"# {text}")  # Markdown header with a single #
 # Add space before displaying the icons
 st.markdown("<br>" * 7, unsafe_allow_html=True)  # Adds 7 line breaks
 
-# Display the icons with hyperlinks
+# Display the icons with hyperlinks and the downward arrow
 st.markdown(
     f"""
     <div class="icons-container">
@@ -90,12 +86,10 @@ st.markdown(
         <a href="https://x.com/manojrajal">
             <img src="data:image/png;base64,{twitter_png_base64}" alt="Twitter Icon" style="width:40px;height:40px;">
         </a>
+        <a href="?page=about_me">
+            <img src="data:image/png;base64,{down_arrow_png_base64}" alt="Down Arrow" class="down-arrow">
+        </a>
     </div>
     """,
     unsafe_allow_html=True
 )
-
-# Button to navigate to the About Me page
-if st.button("Go to About Me"):
-    st.experimental_set_query_params(page="about_me")
-    st.experimental_rerun()
