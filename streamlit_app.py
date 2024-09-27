@@ -17,6 +17,19 @@ st.markdown(
         margin-bottom: 20px;  /* Optional: Add space below the icons */
         z-index: 1000;
     }
+    .down-arrow {
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin: 0 auto;
+        margin-top: 20px;
+        cursor: pointer;
+    }
+    .about-me-section {
+        margin-top: 50px;
+        text-align: center;
+        color: black;
+    }
     </style>
     """,
     unsafe_allow_html=True
@@ -34,6 +47,7 @@ github_png_base64 = load_image_as_base64("github.png")
 linkedin_png_base64 = load_image_as_base64("linkedin.png")
 facebook_png_base64 = load_image_as_base64("facebook.png")
 twitter_png_base64 = load_image_as_base64("twitter.png")
+down_arrow_png_base64 = load_image_as_base64("down_arrow.png")  # Add your downward arrow image
 
 # Create a container for the typing effect
 container = st.empty()
@@ -78,6 +92,27 @@ st.markdown(
         <a href="https://x.com/manojrajal">
             <img src="data:image/png;base64,{twitter_png_base64}" alt="Twitter Icon" style="width:40px;height:40px;">
         </a>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+# Add downward arrow
+st.markdown(
+    f"""
+    <a href="#about-me-section">
+        <img src="data:image/png;base64,{down_arrow_png_base64}" alt="Down Arrow" class="down-arrow">
+    </a>
+    """,
+    unsafe_allow_html=True
+)
+
+# Add "About Me" section
+st.markdown(
+    """
+    <div id="about-me-section" class="about-me-section">
+        <h1>About Me</h1>
+        <p>Here is some information about me...</p>
     </div>
     """,
     unsafe_allow_html=True
