@@ -1,6 +1,18 @@
 import streamlit as st
 import time
 
+# Inject custom CSS for background color
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: lightgray;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Create a container for the typing effect
 container = st.empty()
 
