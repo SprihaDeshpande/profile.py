@@ -1,5 +1,6 @@
 import streamlit as st
 import base64
+import time
 
 # Inject custom CSS to change the background color and style the page
 st.markdown(
@@ -83,6 +84,9 @@ st.markdown(
         </a>
         <a href="https://x.com/manojrajal">
             <img src="data:image/png;base64,{twitter_png_base64}" alt="Twitter Icon" style="width:40px;height:40px;">
+        </a>
+        <a href="about_me">
+            <img src="data:image/png;base64,{down_arrow_png_base64}" alt="Down Arrow" class="down-arrow">
         </a>
     </div>
     """,
