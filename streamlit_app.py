@@ -1,5 +1,4 @@
 import streamlit as st
-import time
 import base64
 
 # Inject custom CSS to change the background color and style the page
@@ -22,12 +21,6 @@ st.markdown(
         height: 40px;
         cursor: pointer;
         margin: 0 auto;
-    }
-    .about-me-section {
-        display: none; /* Initially hidden */
-        margin-top: 50px;
-        text-align: center;
-        color: black;
     }
     </style>
     """,
@@ -91,34 +84,10 @@ st.markdown(
         <a href="https://x.com/manojrajal">
             <img src="data:image/png;base64,{twitter_png_base64}" alt="Twitter Icon" style="width:40px;height:40px;">
         </a>
-        <a href="#about-me-section">
+        <a href="about_me">
             <img src="data:image/png;base64,{down_arrow_png_base64}" alt="Down Arrow" class="down-arrow">
         </a>
     </div>
-    """,
-    unsafe_allow_html=True
-)
-
-# Add "About Me" section
-st.markdown(
-    """
-    <div id="about-me-section" class="about-me-section">
-        <h1>About Me</h1>
-        <p>Here is some information about me...</p>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
-
-# Add JavaScript for smooth scroll and showing "About Me" section when the down arrow is clicked
-st.markdown(
-    """
-    <script>
-    document.querySelector(".down-arrow").addEventListener("click", function() {
-        document.querySelector(".about-me-section").style.display = "block";
-        document.querySelector(".about-me-section").scrollIntoView({ behavior: 'smooth' });
-    });
-    </script>
     """,
     unsafe_allow_html=True
 )
