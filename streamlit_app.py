@@ -44,6 +44,9 @@ container.markdown(f"# {text}")  # Markdown header with a single #
 # Load the email.svg as base64
 svg_base64 = load_svg_as_base64("email.svg")
 
+# Add space before displaying the email icon
+st.markdown("<br>" * 7, unsafe_allow_html=True)  # Adds 7 line breaks
+
 # Display the email icon as a hyperlink after text has finished typing
 st.markdown(
     f"""
@@ -53,5 +56,3 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
-
