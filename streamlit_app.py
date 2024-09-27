@@ -2,19 +2,20 @@ import streamlit as st
 import time
 import base64
 
-# Inject custom CSS to change the background color
+# Inject custom CSS to change the background color and add padding to content
 st.markdown(
     """
     <style>
     .stApp {
         background-color: lightgray;
         position: relative;
-        min-height: 100vh;
+        padding-bottom: 60px;  /* Ensure space for the icon */
     }
     .email-icon {
-        position: absolute;
+        position: fixed;
         bottom: 10px;
         left: 10px;
+        z-index: 1000;  /* Ensure the icon stays on top */
     }
     </style>
     """,
