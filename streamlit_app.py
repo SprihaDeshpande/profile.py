@@ -11,11 +11,10 @@ st.markdown(
     }
     .icons-container {
         display: flex;
+        justify-content: center;  /* Center icons horizontally */
         gap: 10px;  /* Adjust spacing between icons as needed */
         margin-top: 20px;  /* Adjust space from the text */
-        position: fixed;
-        bottom: 10px;
-        left: 10px;
+        margin-bottom: 20px;  /* Optional: Add space below the icons */
         z-index: 1000;
     }
     </style>
@@ -57,7 +56,7 @@ container.markdown(f"# {text}")  # Markdown header with a single #
 # Add space before displaying the icons
 st.markdown("<br>" * 7, unsafe_allow_html=True)  # Adds 7 line breaks
 
-# Display both email and GitHub icons with hyperlinks in a row
+# Display both email and GitHub icons with hyperlinks centered
 st.markdown(
     f"""
     <div class="icons-container">
