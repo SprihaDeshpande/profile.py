@@ -2,12 +2,17 @@ import streamlit as st
 import time
 import base64
 
-# Inject custom CSS to change the background color
+# Inject custom CSS to change the background color and position the email icon
 st.markdown(
     """
     <style>
     .stApp {
         background-color: lightgray;
+    }
+    .email-icon {
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
     }
     </style>
     """,
@@ -22,16 +27,6 @@ def load_svg_as_base64(svg_file_path):
 
 # Load the email.svg as base64
 svg_base64 = load_svg_as_base64("email.svg")
-
-# Display the email icon as a hyperlink
-st.markdown(
-    f"""
-    <a href="mailto:rajalbandi.manoj@gmail.com">
-        <img src="data:image/svg+xml;base64,{svg_base64}" alt="Email Icon" style="width:40px;height:40px;">
-    </a>
-    """,
-    unsafe_allow_html=True
-)
 
 # Create a container for the typing effect
 container = st.empty()
@@ -48,4 +43,20 @@ typed_text = ""
 # Simulate typing effect
 for char in text:
     typed_text += char
-    container.markdown(f"# {typed_text}")
+    container.markdown(f"# {typed_text}")  # Using Markdown header for large text
+    time.sleep(typing_speed)
+
+# Keep the final text displayed
+container.markdown(f"# {text}")  # Markdown header with a single #
+
+# Display the email icon at the bottom-left as a hyperlink
+st.markdown(
+    f"""
+    <div class="email-icon">
+        <a href="mailto:rajalbandi.manoj@gmail.com">
+            <img src="data:image/svg+xml;base64,{svg_base64}" alt="Email Icon" style="width:40px;height:40px;">
+        </a>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
