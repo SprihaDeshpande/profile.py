@@ -1,11 +1,11 @@
 import streamlit as st
 import time
 
-# Inject custom CSS for background color
+# Inject custom CSS to change the background color
 st.markdown(
     """
     <style>
-    body {
+    .stApp {
         background-color: lightgray;
     }
     </style>
