@@ -5,7 +5,7 @@ st.markdown(
     """
     <style>
     .stApp {
-        background-color: lightgray;
+        background-color: peachpuff;  /* Peach background color */
     }
     .about-me-section {
         margin-top: 50px;
@@ -27,4 +27,3 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
