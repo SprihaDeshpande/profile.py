@@ -12,6 +12,18 @@ st.markdown(
         text-align: center;
         color: black;
     }
+    .navigate-button {
+        display: block;
+        width: 200px;
+        margin: 20px auto;
+        padding: 10px;
+        text-align: center;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
     </style>
     """,
     unsafe_allow_html=True
