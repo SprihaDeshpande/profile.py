@@ -40,7 +40,7 @@ github_png_base64 = load_image_as_base64("github.png")
 linkedin_png_base64 = load_image_as_base64("linkedin.png")
 facebook_png_base64 = load_image_as_base64("facebook.png")
 twitter_png_base64 = load_image_as_base64("twitter.png")
-down_arrow_png_base64 = load_image_as_base64("down_arrow.png")  # Add your downward arrow image
+down_arrow_png_base64 = load_image_as_base64("down_arrow.png")
 
 # Create a container for the typing effect
 container = st.empty()
@@ -85,7 +85,7 @@ st.markdown(
         <a href="https://x.com/manojrajal">
             <img src="data:image/png;base64,{twitter_png_base64}" alt="Twitter Icon" style="width:40px;height:40px;">
         </a>
-        <a href="about_me">
+        <a href="/about_me">
             <img src="data:image/png;base64,{down_arrow_png_base64}" alt="Down Arrow" class="down-arrow">
         </a>
     </div>
