@@ -17,11 +17,17 @@ st.markdown(
         margin-bottom: 20px;  /* Optional: Add space below the icons */
         z-index: 1000;
     }
-    .down-arrow {
-        width: 40px;
-        height: 40px;
+    .navigate-button {
+        display: block;
+        width: 200px;
+        margin: 20px auto;
+        padding: 10px;
+        text-align: center;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
         cursor: pointer;
-        margin: 0 auto;
     }
     </style>
     """,
@@ -40,7 +46,6 @@ github_png_base64 = load_image_as_base64("github.png")
 linkedin_png_base64 = load_image_as_base64("linkedin.png")
 facebook_png_base64 = load_image_as_base64("facebook.png")
 twitter_png_base64 = load_image_as_base64("twitter.png")
-down_arrow_png_base64 = load_image_as_base64("down_arrow.png")
 
 # Create a container for the typing effect
 container = st.empty()
@@ -66,7 +71,7 @@ container.markdown(f"# {text}")  # Markdown header with a single #
 # Add space before displaying the icons
 st.markdown("<br>" * 7, unsafe_allow_html=True)  # Adds 7 line breaks
 
-# Display the icons with hyperlinks and the downward arrow
+# Display the icons with hyperlinks
 st.markdown(
     f"""
     <div class="icons-container">
