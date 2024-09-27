@@ -9,6 +9,13 @@ st.markdown(
     .stApp {
         background-color: lightgray;
     }
+    .email-icon {
+        opacity: 0;  /* Start with icon hidden */
+        transition: opacity 5s ease-in;  /* Adjust timing and easing for the fade-in effect */
+    }
+    .email-icon.show {
+        opacity: 1;  /* Make icon fully visible */
+    }
     </style>
     """,
     unsafe_allow_html=True
@@ -47,12 +54,19 @@ svg_base64 = load_svg_as_base64("email.svg")
 # Add space before displaying the email icon
 st.markdown("<br>" * 7, unsafe_allow_html=True)  # Adds 7 line breaks
 
-# Display the email icon as a hyperlink after text has finished typing
+# Display the email icon as a hyperlink with a fade-in effect
 st.markdown(
     f"""
-    <a href="mailto:rajalbandi.manoj@gmail.com">
-        <img src="data:image/svg+xml;base64,{svg_base64}" alt="Email Icon" style="width:40px;height:40px;">
-    </a>
+    <div class="email-icon" id="email-icon">
+        <a href="mailto:rajalbandi.manoj@gmail.com">
+            <img src="data:image/svg+xml;base64,{svg_base64}" alt="Email Icon" style="width:40px;height:40px;">
+        </a>
+    </div>
+    <script>
+    setTimeout(function() {{
+        document.getElementById('email-icon').classList.add('show');
+    }}, 3000);  // Adjust the delay in milliseconds (3000 ms = 3 seconds)
+    </script>
     """,
     unsafe_allow_html=True
 )
