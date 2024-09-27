@@ -2,7 +2,7 @@ import streamlit as st
 import time
 import base64
 
-# Inject custom CSS to change the background color
+# Inject custom CSS to change the background color and style the page
 st.markdown(
     """
     <style>
@@ -18,14 +18,13 @@ st.markdown(
         z-index: 1000;
     }
     .down-arrow {
-        display: block;
         width: 40px;
         height: 40px;
-        margin: 0 auto;
-        margin-top: 20px;
         cursor: pointer;
+        margin: 0 auto;
     }
     .about-me-section {
+        display: none; /* Initially hidden */
         margin-top: 50px;
         text-align: center;
         color: black;
@@ -73,7 +72,7 @@ container.markdown(f"# {text}")  # Markdown header with a single #
 # Add space before displaying the icons
 st.markdown("<br>" * 7, unsafe_allow_html=True)  # Adds 7 line breaks
 
-# Display the email, GitHub, LinkedIn, Facebook, and Twitter icons with hyperlinks centered
+# Display the icons with hyperlinks and the downward arrow
 st.markdown(
     f"""
     <div class="icons-container">
@@ -92,17 +91,10 @@ st.markdown(
         <a href="https://x.com/manojrajal">
             <img src="data:image/png;base64,{twitter_png_base64}" alt="Twitter Icon" style="width:40px;height:40px;">
         </a>
+        <a href="#about-me-section">
+            <img src="data:image/png;base64,{down_arrow_png_base64}" alt="Down Arrow" class="down-arrow">
+        </a>
     </div>
-    """,
-    unsafe_allow_html=True
-)
-
-# Add downward arrow
-st.markdown(
-    f"""
-    <a href="#about-me-section">
-        <img src="data:image/png;base64,{down_arrow_png_base64}" alt="Down Arrow" class="down-arrow">
-    </a>
     """,
     unsafe_allow_html=True
 )
@@ -114,6 +106,19 @@ st.markdown(
         <h1>About Me</h1>
         <p>Here is some information about me...</p>
     </div>
+    """,
+    unsafe_allow_html=True
+)
+
+# Add JavaScript for smooth scroll and showing "About Me" section when the down arrow is clicked
+st.markdown(
+    """
+    <script>
+    document.querySelector(".down-arrow").addEventListener("click", function() {
+        document.querySelector(".about-me-section").style.display = "block";
+        document.querySelector(".about-me-section").scrollIntoView({ behavior: 'smooth' });
+    });
+    </script>
     """,
     unsafe_allow_html=True
 )
