@@ -71,7 +71,7 @@ st.markdown(
         <a href="mailto:rajalbandi.manoj@gmail.com" class="icon" id="email-icon">
             <img src="data:image/svg+xml;base64,{email_svg_base64}" alt="Email Icon" style="width:40px;height:40px;">
         </a>
-        <a href="https://github.com/manojraj185" class="icon" id="github-icon">
+        <a href="https://github.com/your-github-username" class="icon" id="github-icon">
             <img src="data:image/png;base64,{github_png_base64}" alt="GitHub Icon" style="width:40px;height:40px;">
         </a>
     </div>
