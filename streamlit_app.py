@@ -31,6 +31,7 @@ def load_image_as_base64(image_file_path):
 # Load the images as base64
 email_svg_base64 = load_image_as_base64("email.svg")
 github_png_base64 = load_image_as_base64("github.png")
+linkedin_png_base64 = load_image_as_base64("linkedin.png")
 
 # Create a container for the typing effect
 container = st.empty()
@@ -56,7 +57,7 @@ container.markdown(f"# {text}")  # Markdown header with a single #
 # Add space before displaying the icons
 st.markdown("<br>" * 7, unsafe_allow_html=True)  # Adds 7 line breaks
 
-# Display both email and GitHub icons with hyperlinks centered
+# Display the email, GitHub, and LinkedIn icons with hyperlinks centered
 st.markdown(
     f"""
     <div class="icons-container">
@@ -65,6 +66,9 @@ st.markdown(
         </a>
         <a href="https://github.com/manojraj185">
             <img src="data:image/png;base64,{github_png_base64}" alt="GitHub Icon" style="width:40px;height:40px;">
+        </a>
+        <a href="https://www.linkedin.com/in/manoj-rajalbandi/">
+            <img src="data:image/png;base64,{linkedin_png_base64}" alt="LinkedIn Icon" style="width:40px;height:40px;">
         </a>
     </div>
     """,
