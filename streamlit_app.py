@@ -1,7 +1,6 @@
 import streamlit as st
 import base64
 import time
-from urllib.parse import urlencode
 
 # Inject custom CSS to change the background color and style the page
 st.markdown(
@@ -17,12 +16,17 @@ st.markdown(
         margin-top: 20px;  /* Adjust space from the text */
         margin-bottom: 20px;  /* Optional: Add space below the icons */
         z-index: 1000;
+        flex-wrap: wrap;  /* Ensure icons wrap if needed */
+    }
+    .down-arrow-container {
+        display: flex;
+        justify-content: center;  /* Center the arrow horizontally */
+        margin-top: 20px;  /* Space between icons and arrow */
     }
     .down-arrow {
         width: 40px;
         height: 40px;
         cursor: pointer;
-        margin: 0 auto;
     }
     </style>
     """,
@@ -67,7 +71,7 @@ container.markdown(f"# {text}")  # Markdown header with a single #
 # Add space before displaying the icons
 st.markdown("<br>" * 7, unsafe_allow_html=True)  # Adds 7 line breaks
 
-# Display the icons with hyperlinks and the downward arrow
+# Display the icons with hyperlinks
 st.markdown(
     f"""
     <div class="icons-container">
@@ -86,6 +90,8 @@ st.markdown(
         <a href="https://x.com/manojrajal">
             <img src="data:image/png;base64,{twitter_png_base64}" alt="Twitter Icon" style="width:40px;height:40px;">
         </a>
+    </div>
+    <div class="down-arrow-container">
         <a href="/about_me">
             <img src="data:image/png;base64,{down_arrow_png_base64}" alt="Down Arrow" class="down-arrow">
         </a>
